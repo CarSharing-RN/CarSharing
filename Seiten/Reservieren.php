@@ -10,11 +10,9 @@
 				<?php
 					error_reporting(!E_ALL);
 					
-					if($_GET['t'] != '1')
-					{	
 					$param = $_GET['id'];
 					$bnid = $_GET['lg'];
-					}
+					
 					if($param == md5('NeinNeinNein'))
 					{
 						echo "
@@ -48,7 +46,7 @@
 				
 				<div class="kriterien">
 					<h3>Hier können Sie den Zeitraum für die Reservation auswählen.</h3> 
-					<form  action="Reservieren.php?t=1" method='post'>
+					<form  action="Reservieren.php" method='get'>
 					<br>
 						Von: <input type="date" name="von" required>
 					<br>
@@ -75,54 +73,39 @@
 					</div>
 					<div class="fahrzeuge">
 					<?php
-					$ort = $_POST['foto'];
-					echo $ort;
-					if($bnid != "")
+					$ort = $_GET['foto'];
+					if(isset($_GET['suchen']))
 					{
-					if(isset($_POST['suchen']))
-					{
+						$von = $_GET['von'];
+						$bis = $_GET['bis'];
 						
+						session_start();
 						
-						$sql;
-						$von = $_POST['von'];
-						$bis = $_POST['bis'];
+						$_SESSION['v'] = $von;
+						$_SESSION['b'] = $bis;
 						
 						if($ort == 'Chur')
 						{
-							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge where Modell='Chur' AND von = 'NULL'";
 							header('Location: suchen.php?id='.$param.'&lg='.$bnid.'&ort=Chur&von'.$von.'&bis='.$bis);
 						}
 						else if($ort == 'Sargans')
 						{
-							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge where Modell='Sargans' AND von = 'NULL' ";
 							header('Location: suchen.php?id='.$param.'&lg='.$bnid.'&ort=Sargans&von'.$von.'&bis='.$bis);
-							echo "test";
 						}
 						else if ($ort == 'Ziegelbrueck')
 						{
-							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge where Modell='Ziegelbruck' AND von = 'NULL' ";
 							header('Location: suchen.php?id='.$param.'&lg='.$bnid.'&ort=Ziegelbrueck&von'.$von.'&bis='.$bis);
 						}
 						else if($ort == 'Rapperswil')
 						{
-							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge where Modell='Rapperswil' AND von = 'NULL'";
 							header('Location: suchen.php?id='.$param.'&lg='.$bnid.'&ort=Rapperswil&von'.$von.'&bis='.$bis);
 						}
 						else{
-							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge WHERE von = 'NULL'";
 							header('Location: suchen.php?id='.$param.'&lg='.$bnid.'&ort=&von'.$von.'&bis='.$bis);
-						}
-						
-						
+						}				  
+					}
 					
 
-					  
-					}
-					}
-					else
-					{
-						echo "Sie müssen sich anmelden um Fahrzeuge suchen zu können";
-					}
 					
 
 					?> 

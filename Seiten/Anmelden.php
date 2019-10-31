@@ -41,6 +41,8 @@
 					
 					include '../scripts/connection.php';
 					
+					session_start();
+					
 					if(isset($_POST['anmelden'])) //prüfen ob Anmelden geklickt wurde
 					{
 						$benutzer = $_POST['bn']; //benutzername in variable speichern
@@ -66,6 +68,7 @@
 						}
 						else
 						{
+							$_SESSION['ID'] = $bnid;
 							header('Location: index.php?id='.$ang.'&lg='.$bnid.'');
 						}
 						//------------------------------------------------------Ende Abfrage ob Benutzerdaten korrekt sind---------------------//

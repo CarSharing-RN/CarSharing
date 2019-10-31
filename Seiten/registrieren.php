@@ -75,6 +75,10 @@
 							
 							$ang = md5('NeinNeinNein'); //Parameter für Angemeldet
 							
+							session_start();
+							
+							$_SESSION['ID'] = $bnid;
+							
 							header('Location: index.php?id='.$ang.'&lg='.$bnid.'');
 							
 						}

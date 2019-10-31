@@ -8,10 +8,12 @@
 	<body>
 			<!--Navigation---------------------------------------------------------------------------->
 				<?php
-			
-				
-						$bnid = $_GET['lg'];
-						$param = $_GET['id'];
+						error_reporting(!E_ALL);
+						session_start();
+						$bnid = $_SESSION['ID'];
+						$param = md5('NeinNeinNein');
+						$von=$_SESSION['v'];
+						$bis=$_SESSION['b'];
 						$del = $_GET['Del'];
 				
 						echo "
@@ -20,7 +22,7 @@
 							<li><a href='funktion.php?id=".$param."&lg=".$bnid."'>So funktionierts</a></li>
 							<li><a href='Fahrzeugmodelle.php?id=".$param."&lg=".$bnid."'>Fahrzuegmodelle</a></li>
 							<li><a href='Reservieren.php?id=".$param."&lg=".$bnid."'>Reservieren</a></li>
-							<li><a class='active' href='Reservationen.php?id=".$param."&lg=".$bnid."'>Reservierte Fahrzeuge</a></li>
+							<li><a href='Reservationen.php?id=".$param."&lg=".$bnid."'>Reservierte Fahrzeuge</a></li>
 						</ul>";
 				?>
 			<!--Ende Navigation----------------------------------------------------------------------->
@@ -30,40 +32,52 @@
 				<div class="titel">
 					<h1>Carsharing: Wählen Sie Ihr Fahrzeug</h1> <!--Titel-->
 				</div>
+				<div class="kriterien">
 		<?php
 		include '../scripts/connection.php';
 		
-		$von=$_GET['von'];
-		$bis=$_GET['bis'];
-		$bnid=$_GET['lg'];
+
 		$ort=$_GET['ort'];
-		echo $ort;
+		
+					if($_GET['res'] != "")
+					{
+						$resu = $_GET['res'];
+						$sqld = "UPDATE `fahrzeuge` SET `BNID`='$bnid', `von`='$von', `bis`='$bis' WHERE ID='$resu'";
+						$db->query($sqld);
+						header('Location: Reservationen.php?id='.$param.'&lg='.$bnid);
+					}
+		
+
 						if($ort == 'Chur')
 						{
-							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge where Modell='Chur' AND von = 'NULL'";
-							
+							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge where Wunsch='Chur' AND von = 'NULL'";
+							$db_erg = $db->query($sql);
 						}
 						else if($ort == 'Sargans')
 						{
-							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge where Modell='Sargans' AND von = 'NULL' ";
+							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge where Wunsch='Sargans' AND von = 'NULL' ";
+							$db_erg = $db->query($sql);
 							
 						}
 						else if ($ort == 'Ziegelbrueck')
 						{
-							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge where Modell='Ziegelbruck' AND von = 'NULL' ";
+							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge where Wunsch='Ziegelbruck' AND von = 'NULL' ";
+							$db_erg = $db->query($sql);
 				
 						}
 						else if($ort == 'Rapperswil')
 						{
-							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge where Modell='Rapperswil' AND von = 'NULL'";
+							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge where Wunsch='Rapperswil' AND von = 'NULL'";
+							$db_erg = $db->query($sql);
 							
 						}
 						else{
 							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge WHERE von = 'NULL'";
+							$db_erg = $db->query($sql);
 							
 						}
 		
-		$db_erg = $db->query($sql);
+		
 		
 		echo "<table border='1'>";
 						
@@ -72,17 +86,14 @@
 						echo '<tr>';
 						echo "<td>". $zeile['Modell'] . "</td>";
 						echo "<td>". $zeile['Wunsch'] . "</td>";
-						echo "<td> <a href='Reservationen.php?id=".$param."&lg=".$bnid."&res=".$zeile['ID']."&su=1>Reservieren</a></td>";
+						echo "<td> <a href='suchen.php?id=".$param."&lg=".$bnid."&res=".$zeile['ID']."&su=1>Reservieren</a></td>";
 						echo "</tr>";
 					}
 					echo "</table>";
 					
-					if($_GET['res'] != "")
-					{
-						$resu = $_GET['res'];
-						$sql="INSERT INTO fahrzeug (BNID,von,bis) VALUES ('$bnid', '$von', '$bis') WHERE ID='$resu'";
-					}
+
 					  
 	?>
+	</div>
 	</body>
 </html>

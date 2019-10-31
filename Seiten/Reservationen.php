@@ -49,7 +49,14 @@
 					
 					$db_erg = $db->query($sql);
 					
-					echo "<table border='1'>";
+					echo "<table border='1'>
+							<tr>
+								<td>Modell</td>
+								<td>Standort</td>
+								<td>Reserviert von</td>
+								<td>Reserviert bis</td>
+								<td>Stornieren</td>
+							</tr>";
 					
 					while ($zeile = mysqli_fetch_assoc($db_erg))
 					{
