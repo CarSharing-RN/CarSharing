@@ -1,0 +1,155 @@
+/*---------------------------Footer------------------------------------------------*/
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+/*--------------------------Ende Footer---------------------------------------------*/
+
+/*------------------------------Navigation--------------------------------------------*/
+ul {
+  text-align: center;
+  position: fixed;
+  top: -20;
+  left: 0;
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #333;
+  width: 100%;
+  
+}
+
+li {
+  float: left;
+  margin-left: 5;
+  bottom: 0;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+/*--------------------------Navigation Ende-----------------------------------------*/
+
+/*--------------------------Hintergrundbild Startseite------------------------------*/
+.hintergrund{
+	 background-image: url("../bilder/carsharingstartseite.png");
+	 background-color: gray;
+	 width:100%;
+}
+/*--------------------------Hintergrundbild Startseite Ende------------------------------*/
+
+/*--------------------------Titel--------------------------------------------------------*/
+.titel{
+	margin-left: 1%;
+	margin-right: 1%;
+	text-align:center;
+}
+/*-------------------------Titel Ende----------------------------------------------------*/
+
+/*--------------------------Style so Funktionierts------------------------------------*/
+.tfunk2{
+	margin-left: 15%;
+	margin-right: 30%;
+	text-align:justify;
+}
+
+.textfunk{
+	margin-left: 15%;
+	margin-right: 30%;
+	text-align:justify;
+}
+/*-------------------------Style so Funktionierts Ende------------------------------------*/
+
+/*-------------------------Style Index----------------------------------------------------*/
+
+.TextIndex {
+	text-align:center;
+	margin-top:250px;
+}
+
+.TextIndex h1 {
+	font-size:70px;
+}
+
+.TextIndex {
+	font-size:20px;
+}
+
+/*-------------------------Style Index Ende-----------------------------------------------*/
+
+/*-------------------------Style Fahrzuegmodelle------------------------------------------*/
+
+.boxmodelle{
+	margin-left: 15%;
+	margin-right: 30%;
+}
+
+.audi  img{
+	margin-left: 30px;
+}
+
+.vw img{
+	height: 200px;
+	margin-left: 30px;
+}
+/*-------------------------Style Fahrzuegmodelle Ende-------------------------------------*/
+
+/*-------------------------Style Anmelden-------------------------------------------------*/
+
+.anmelden {
+	margin-left: 15%;
+	margin-right: 30%;
+}
+
+/*-------------------------Style Anmelden Ende--------------------------------------------*/
+
+/*-------------------------Style Registrieren-------------------------------------------------*/
+
+.registrieren {
+	margin-left: 15%;
+	margin-right: 30%;
+}
+
+/*-------------------------Style Registrieren Ende--------------------------------------------*/
+
+/*-------------------------Style Reservieren-------------------------------------------------*/
+
+.map-container {
+	margin-left: 15%;
+	margin-right: 30%;
+	width:100%;
+}
+
+
+
+.kriterien{
+	margin-left: 1%;
+	margin-right: 1%;
+	text-align:center;
+}
+
+.fahrzeuge{
+	margin-left: 15%;
+	margin-right: 30%;
+}
+/*-------------------------Style Reservieren Ende--------------------------------------------*/
