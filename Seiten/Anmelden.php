@@ -69,6 +69,7 @@
 						else
 						{
 							$_SESSION['ID'] = $bnid;
+							$_SESSION['ANG'] = $ang;
 							header('Location: index.php?id='.$ang.'&lg='.$bnid.'');
 						}
 						//------------------------------------------------------Ende Abfrage ob Benutzerdaten korrekt sind---------------------//

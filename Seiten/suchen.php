@@ -61,7 +61,7 @@
 						}
 						else if ($ort == 'Ziegelbrueck')
 						{
-							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge where Wunsch='Ziegelbruck' AND von = 'NULL' ";
+							$sql = "SELECT Modell, Wunsch, ID FROM fahrzeuge where Wunsch='Ziegelbrueck' AND von = 'NULL' ";
 							$db_erg = $db->query($sql);
 				
 						}
@@ -77,20 +77,18 @@
 							
 						}
 		
-		
-		
-		echo "<table border='1'>";
-						
+
+		echo "<table border='1'>";			
 			while ($zeile = mysqli_fetch_assoc($db_erg))
 					{
-						echo '<tr>';
-						echo "<td>". $zeile['Modell'] . "</td>";
-						echo "<td>". $zeile['Wunsch'] . "</td>";
-						echo "<td> <a href='suchen.php?id=".$param."&lg=".$bnid."&res=".$zeile['ID']."&su=1>Reservieren</a></td>";
+						echo "<tr>";
+						echo "<td>". $zeile["Modell"] . "</td>";
+						echo "<td>". $zeile["Wunsch"] . "</td>";
+						echo '<td> <a href=suchen.php?id='.$param.'&lg='.$bnid.'&res='.$zeile["ID"].'&su=1>Reservieren</a></td>';
 						echo "</tr>";
 					}
 					echo "</table>";
-					
+	
 
 					  
 	?>

@@ -9,9 +9,10 @@
 			<!--Navigation---------------------------------------------------------------------------->
 				<?php
 					error_reporting(!E_ALL);
+					session_start();
 					
-					$param = $_GET['id'];
-					$bnid = $_GET['lg'];
+					$param = $_SESSION['ANG'];
+					$bnid = $_SESSION['ID'];
 					
 					if($param == md5('NeinNeinNein'))
 					{
@@ -76,10 +77,16 @@
 					$ort = $_GET['foto'];
 					if(isset($_GET['suchen']))
 					{
+						if($_SESSION['ANG'] != "")
+						{
 						$von = $_GET['von'];
 						$bis = $_GET['bis'];
+						$heute = date("Y-m-d");
 						
-						session_start();
+						if($von > $heute && $bis > $heute && $von <= $bis)
+						{
+							
+						
 						
 						$_SESSION['v'] = $von;
 						$_SESSION['b'] = $bis;
@@ -102,7 +109,17 @@
 						}
 						else{
 							header('Location: suchen.php?id='.$param.'&lg='.$bnid.'&ort=&von'.$von.'&bis='.$bis);
-						}				  
+						}			
+						}
+						else
+						{
+							echo "Bitte geben Sie ein korrektes Datum ein.";
+						}	
+						}
+						else
+						{
+							echo "Sie müssen sich Anmelden um ein Fahrzeug Reservieren zu können.";
+						}
 					}
 					
 

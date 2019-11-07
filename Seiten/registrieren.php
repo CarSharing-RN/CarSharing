@@ -78,6 +78,7 @@
 							session_start();
 							
 							$_SESSION['ID'] = $bnid;
+							$_SESSION['ANG'] = $ang;
 							
 							header('Location: index.php?id='.$ang.'&lg='.$bnid.'');
 							

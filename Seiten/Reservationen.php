@@ -65,7 +65,7 @@
 					  echo "<td>". $zeile['Wunsch'] . "</td>";
 					  echo "<td>". $zeile['von'] . "</td>";
 					  echo "<td>". $zeile['bis'] . "</td>";
-					  echo "<td> <a href='Reservationen.php?id=".$param."&lg=".$bnid."&Del=".$zeile['ID']."'>Reservierung Stornieren</a></td>";
+					  echo '<td> <a href=Reservationen.php?id='.$param.'&lg='.$bnid.'&Del='.$zeile["ID"].'>Fahrzeug Stornieren</a></td>';
 					  echo "</tr>";
 					}
 					echo "</table>";
