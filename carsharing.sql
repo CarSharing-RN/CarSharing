@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 31. Okt 2019 um 15:50
+-- Erstellungszeit: 07. Nov 2019 um 16:10
 -- Server-Version: 10.4.8-MariaDB
 -- PHP-Version: 7.1.32
 
@@ -55,8 +55,8 @@ CREATE TABLE `fahrzeuge` (
   `Modell` varchar(255) NOT NULL,
   `Wunsch` varchar(255) NOT NULL,
   `BNID` varchar(255) DEFAULT NULL,
-  `von` varchar(255) DEFAULT NULL,
-  `bis` varchar(255) DEFAULT NULL,
+  `von` date DEFAULT NULL,
+  `bis` date DEFAULT NULL,
   `ID` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -65,30 +65,30 @@ CREATE TABLE `fahrzeuge` (
 --
 
 INSERT INTO `fahrzeuge` (`Modell`, `Wunsch`, `BNID`, `von`, `bis`, `ID`) VALUES
-('Audi A6', 'Sargans', 'NULL', 'NULL', 'NULL', 7),
-('Audi A6', 'Chur', 'NULL', 'NULL', 'NULL', 10),
-('Audi A6', 'Ziegelbrueck', 'NULL', 'NULL', 'NULL', 12),
-('Audi A6', 'Rapperswil', 'NULL', 'NULL', 'NULL', 13),
-('Audi A3', 'Ziegelbrueck', 'NULL', 'NULL', 'NULL', 14),
-('Audi A3', 'Sargans', 'NULL', 'NULL', 'NULL', 15),
-('Audi A3', 'Chur', 'NULL', 'NULL', 'NULL', 16),
-('Audi A3', 'Rapperswil', 'NULL', 'NULL', 'NULL', 17),
-('Audi S1', 'Ziegelbrueck', 'NULL', 'NULL', 'NULL', 18),
-('Audi S1', 'Chur', 'NULL', 'NULL', 'NULL', 19),
-('Audi S1', 'Sargans', 'NULL', 'NULL', 'NULL', 20),
-('Audi S1', 'Rapperswil', 'NULL', 'NULL', 'NULL', 21),
-('VW Phaeton', 'Ziegelbrueck', 'NULL', 'NULL', 'NULL', 22),
-('VW Phaeton', 'Rapperswil', 'NULL', 'NULL', 'NULL', 23),
-('VW Phaeton', 'Sargans', 'NULL', 'NULL', 'NULL', 24),
-('VW Phaeton', 'Chur', 'NULL', 'NULL', 'NULL', 25),
-('VW Arteon', 'Ziegelbrueck', 'NULL', 'NULL', 'NULL', 26),
-('VW Arteon', 'Chur', 'NULL', 'NULL', 'NULL', 27),
-('VW Arteon', 'Sargans', 'NULL', 'NULL', 'NULL', 28),
-('VW Arteon', 'Rapperswil', 'NULL', 'NULL', 'NULL', 29),
-('VW Golf', 'Ziegelbrueck', 'NULL', 'NULL', 'NULL', 30),
-('VW Golf', 'Rapperswil', 'NULL', 'NULL', 'NULL', 31),
-('VW Golf', 'Sargans', 'NULL', 'NULL', 'NULL', 32),
-('VW Golf', 'Chur', 'NULL', 'NULL', 'NULL', 33);
+('Audi A6', 'Sargans', 'NULL', '0000-00-00', '0000-00-00', 7),
+('Audi A6', 'Chur', 'NULL', '0000-00-00', '0000-00-00', 10),
+('Audi A6', 'Ziegelbrueck', 'NULL', '0000-00-00', '0000-00-00', 12),
+('Audi A6', 'Rapperswil', 'NULL', '0000-00-00', '0000-00-00', 13),
+('Audi A3', 'Ziegelbrueck', 'NULL', '0000-00-00', '0000-00-00', 14),
+('Audi A3', 'Sargans', 'NULL', '0000-00-00', '0000-00-00', 15),
+('Audi A3', 'Chur', 'NULL', '0000-00-00', '0000-00-00', 16),
+('Audi A3', 'Rapperswil', 'NULL', '0000-00-00', '0000-00-00', 17),
+('Audi S1', 'Ziegelbrueck', 'NULL', '0000-00-00', '0000-00-00', 18),
+('Audi S1', 'Chur', 'NULL', '0000-00-00', '0000-00-00', 19),
+('Audi S1', 'Sargans', 'NULL', '0000-00-00', '0000-00-00', 20),
+('Audi S1', 'Rapperswil', 'NULL', '0000-00-00', '0000-00-00', 21),
+('VW Phaeton', 'Ziegelbrueck', 'NULL', '0000-00-00', '0000-00-00', 22),
+('VW Phaeton', 'Rapperswil', 'NULL', '0000-00-00', '0000-00-00', 23),
+('VW Phaeton', 'Sargans', 'NULL', '0000-00-00', '0000-00-00', 24),
+('VW Phaeton', 'Chur', 'NULL', '0000-00-00', '0000-00-00', 25),
+('VW Arteon', 'Ziegelbrueck', 'NULL', '0000-00-00', '0000-00-00', 26),
+('VW Arteon', 'Chur', 'NULL', '0000-00-00', '0000-00-00', 27),
+('VW Arteon', 'Sargans', 'NULL', '0000-00-00', '0000-00-00', 28),
+('VW Arteon', 'Rapperswil', 'NULL', '0000-00-00', '0000-00-00', 29),
+('VW Golf', 'Ziegelbrueck', 'NULL', '0000-00-00', '0000-00-00', 30),
+('VW Golf', 'Rapperswil', 'NULL', '0000-00-00', '0000-00-00', 31),
+('VW Golf', 'Sargans', 'NULL', '0000-00-00', '0000-00-00', 32),
+('VW Golf', 'Chur', 'NULL', '0000-00-00', '0000-00-00', 33);
 
 --
 -- Indizes der exportierten Tabellen
